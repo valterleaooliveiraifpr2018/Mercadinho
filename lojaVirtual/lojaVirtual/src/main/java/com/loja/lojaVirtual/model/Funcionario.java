@@ -23,7 +23,7 @@ public class Funcionario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO )
 	private long id;
 	
-	private String nome, cargo, cidade, logradouro, numero, complemento, bairro, uf, cep;
+	private String nome, cargo, cidade, logradouro, numero, complemento, endereco, bairro, uf, cep;
 	@Temporal(TemporalType.DATE)
 	private Date dataEntrada, dataSaida;
 	private Double salarioBruto;
@@ -105,6 +105,13 @@ public class Funcionario implements Serializable {
 	public void setSalarioBruto(Double salarioBruto) {
 		this.salarioBruto = salarioBruto;
 	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
 	
 	
 }
