@@ -1,7 +1,8 @@
-package com.loja.lojaVirtual.controller;
+package com.loja.lojaVirtual.controller.admin;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import com.loja.lojaVirtual.repository.FuncionarioRepository;
 @Controller 
 public class FuncionarioController {
 	
+	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
 	@GetMapping("/administrativo/funcionarios/cadastro")
@@ -29,9 +31,11 @@ public class FuncionarioController {
 	}
 	@PostMapping("/administrativo/funcionarios/salvar")
 	public ModelAndView salvar(@Valid Funcionario funcionario,BindingResult result) {
-		if (result.hasErrors()) {
-			return cadastrar(funcionario);
-		} 
+		
+//		if (result.hasErrors()) {
+//			System.out.println("teste");
+//			return cadastrar(funcionario);
+//		} 
 		funcionarioRepository.saveAndFlush(funcionario);
 		return cadastrar(new Funcionario());
 	}
