@@ -26,16 +26,16 @@ public class FuncionarioController {
 	}
 	@GetMapping("/administrativo/funcionarios/listar")
 	public String acessarLista() {
-		return "administrativo/funcionario/lista";
+		return "administrativo/funcionarios/lista";
 		
 	}
 	@PostMapping("/administrativo/funcionarios/salvar")
 	public ModelAndView salvar(@Valid Funcionario funcionario,BindingResult result) {
 		
-//		if (result.hasErrors()) {
-//			System.out.println("teste");
-//			return cadastrar(funcionario);
-//		} 
+		if (result.hasErrors()) {
+//			System.out.println("teste" + result.getAllErrors());
+			return cadastrar(funcionario);
+		} 
 		funcionarioRepository.saveAndFlush(funcionario);
 		return cadastrar(new Funcionario());
 	}

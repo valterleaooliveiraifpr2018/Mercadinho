@@ -14,13 +14,18 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "funcionario")
+@Table(name = "funcionarios")
 public class Funcionario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Funcionario() {
 		super();
 	}
-	private static final long SerialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO )
 	private long id;
@@ -43,6 +48,10 @@ public class Funcionario implements Serializable {
 	private Date dataSaida;
 	
 	private Double salarioBruto;
+	
+	
+	//Metodos Especiais
+	
 	public long getId() {
 		return id;
 	}
